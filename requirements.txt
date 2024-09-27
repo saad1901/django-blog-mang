@@ -1,0 +1,33 @@
+# Django framework for web development
+Django>=4.2.0
+
+
+# Pillow for handling image uploads (for blog post images)
+Pillow>=9.0.0
+
+# Django extensions for additional utilities (optional)
+django-extensions>=3.2.0
+
+# Markdown support for rendering blog posts with markdown (optional)
+Markdown>=3.4.0
+
+# Django Crispy Forms for better form rendering (optional)
+django-crispy-forms>=1.14.0
+
+# Django Taggit for tagging blog posts (optional)
+django-taggit>=3.1.0
+
+# Django REST Framework (optional if you want to create an API)
+djangorestframework>=3.14.0
+
+# Celery for background tasks like sending notifications (optional)
+celery>=5.2.7
+
+# Redis as the broker for Celery (optional if using Celery)
+redis>=4.5.0
+
+# Whitenoise for serving static files in production
+whitenoise>=6.0.0
+
+# Gunicorn for deploying the project in production
+gunicorn>=20.1.0
