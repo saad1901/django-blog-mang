@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% load static %}
+<main class="blog-post" style="margin-bottom: 100px;"> <!-- Add margin-bottom to create space for the footer -->
+    <div class="container">
+        <h1 class="page-title" data-aos="fade-up"></h1>
+        {% for post in post %}
+        <div class="row">
+            <div class="col-lg-6" data-aos="fade-up">
+                <section class="blog-post-content">
+                    <p class="blog-post-meta">Written by {{ post.author }} • {{ post.date }}</p>
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.content | safe }}</p>
+                </section>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up">
+                <section class="blog-post-featured-img">
+                    <img src="/{{ post.featured_image }}" alt="featured image" class="featured-image" style="max-width: 100%; height: auto;">
+                </section>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

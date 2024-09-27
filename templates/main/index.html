@@ -1,0 +1,75 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% load static %}
+<main style="margin-bottom: 100px;">
+    <section class="edica-landing-section edica-landing-blog">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Latest Blog Posts</h2>
+            <div class="row">
+                {% for post in latest_post %}
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="card blog-post-card">
+                        <img src="/{{ post.featured_image }}" class="card-img-top" alt="Blog Post Image">
+                        <div class="card-body">
+                            <p class="blog-post-category">{{ post.category }}</p>
+                            <h5 class="card-title">{{ post.title | truncatechars:50 }}</h5>
+                            <p class="card-text" style="height: 100px; overflow: hidden;">{{ post.content | striptags | truncatechars:150 }}</p>
+                            <p class="card-text">Author: {{ post.author }}</p>
+                            <a href="{% url 'single_blog' post.id %}" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
+
+<style>
+    /* Additional CSS for blog posts section */
+    .section-title {
+        text-align: center;
+        margin-bottom: 90px;
+    }
+
+    .blog-post-card {
+        border: 1px solid #eee;
+        transition: all 0.3s ease;
+    }
+
+    .blog-post-card:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-post-card .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .blog-post-category {
+        font-size: 14px;
+        color: #888;
+        margin-bottom: 5px;
+    }
+
+    .card-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        color: #666;
+    }
+
+    .btn-primary {
+        background-color: #ff4d4d;
+        border-color: #ff4d4d;
+    }
+
+    .btn-primary:hover {
+        background-color: #e63c3c;
+        border-color: #e63c3c;
+    }
+</style>
+{% endblock %}
